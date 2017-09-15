@@ -89,9 +89,9 @@ public class Demo1Action extends ActionSupport{
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("username",username);
 		map.put("password",password);
-		String result=doget("http://www.x.com/sso/doLogin.action",map);
+		String result=doget("http://www.x.com/sso/doLogin.action",map);// a、b统一由x.com 来校验！
 		if(result.equals("1")){
-			hiddenUrl=new ArrayList<String>();
+			hiddenUrl=new ArrayList<String>();//利用demo1登陆成功的一瞬间把demo2的cookie也写一写！然后通过隐藏的iframe对各个子页面进行cookie的写入！
 			hiddenUrl.add("http://www.a.com/demo1/addCookie.action");
 			hiddenUrl.add("http://www.b.com/demo2/addCookie.action");
 			return SUCCESS;
@@ -99,6 +99,7 @@ public class Demo1Action extends ActionSupport{
 		return "login";
 	}
 
+	//为本域设置cookie ： a、b两人在街上逛街，a突然看到个很喜欢的东西想买，但下一刻发现没带钱和银行卡，但b也只有银行卡，此时b不可能把卡和卡的密码都给a！a可以请b帮忙付钱！
 	/*public void addCookie() {
 		Cookie cookie=new Cookie("ssocookie","sso");
 		cookie.setPath("/");
