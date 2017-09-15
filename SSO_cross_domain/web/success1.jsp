@@ -14,8 +14,10 @@
 <body>
 
 demo1
-    <c:forEach var="url" items="${hiddenUrl}">
-        <iframe src="${url}" width="0px" height="0px" style="display: none"></iframe>
+    <!--a没钱，可以让b本人去取了钱后帮a付钱(a、b在此协商<通过隐藏的iframe让a和b在这里交汇>)，
+	利用demo1登陆成功的一瞬间把demo2的cookie也写一写！  利用隐藏框架存储cookie -->
+    <c:forEach var="url" items="${hiddenUrl}">  <!--遍历 hiddenUrl集合  -->
+        <iframe src="${url}" width="0px" height="0px" style="display: none"></iframe><!--让子项都在iframe里面run  -->
     </c:forEach>
 </body>
 </html>
