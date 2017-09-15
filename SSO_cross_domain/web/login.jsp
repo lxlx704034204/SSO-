@@ -10,12 +10,13 @@
 
 	<center>
 		<h1>请登录</h1>
+    <!-- action="<%=basePath %>/${path}/doLogin.action" ： //本域下面的名字为“path”的访问空间 下的doLogin方法提交 -->
 		<form action="/${path}/dologin.action" method="POST">
 			<span>用户名：</span>
 				<input type="text" name="username"/>
 			<span>密码：</span>
 				<input type="password" name="password">
-			<input type="text" name="gotourl" value="${gotourl }"/>
+			<input type="text" name="gotourl" value="${gotourl }"/><!-- 暂存将要去的请求地址 -->
 			<input type="submit" />
 		</form>
 	</center>
